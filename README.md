@@ -97,3 +97,11 @@ Providing the functionality to access, manage and store device topologies, given
 ![picture alt](https://raw.githubusercontent.com/Zaher1307/TopologyAPI/master/UML%20diagrams/TopologyRelationship.png "TopolgoUML")
 
 ***Note:*** *The UML Diagram of these classes shows the composition relation between them.*
+
+## How to use the API
+**Easly you can install the [Used Technologies](#Used-Technologies) or any other technology you prefer, then add your Main Class with main function to use the API**
+
+## how to test the API 
+**Easly you can install the [Used Technologies](#Used-Technologies) or any other technology you prefer, then run the TestTopologyManager Class which defined [here](https://github.com/Zaher1307/TopologyAPI/blob/master/src/test/java/TestTopologyAPI/TestTopologyManager.java), if it runs without throwing any exception then it will be full tested**
+
+![picture alt](https://raw.githubusercontent.com/Zaher1307/TopologyAPI/master/testPassed.png "testPassed")
