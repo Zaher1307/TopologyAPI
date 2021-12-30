@@ -18,7 +18,7 @@ Providing the functionality to access, manage and store device topologies, given
 - [Maven](https://maven.apache.org/) as a building tool.
 - [Junit5](https://junit.org/junit5/) to perform unit tests.
 
-**The purpose of choose this technology**
+**The purpose of choosing this technology**
 - *It's a high-level object oriented programming language*
 - *the knowlege I build in Java Programming language*
 - *Its support to the Gson library to parse and manipulate json files*
