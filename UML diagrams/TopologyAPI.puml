@@ -1,0 +1,41 @@
+@startuml TopologyManager
+
+package TopologyAPI {
+    class JsonHelperClass {
+        .. Constructors ..
+        - JsonHelperClass()
+        .. Private static methods ..
+        - {static} getDeviceList(topology: Topology): ArrayList<Object>
+        - {static} getCharacteristicsMap(characteristic: Characteristic): HashMap<String, Double>
+        - {static} getElement(jsonObject: JsonObject,element: String): String
+        - {static} getCharacteristicsObject(jsonObject: JsonObject, key: String): JsonObject
+        - {static} getNetlistObject(jsonObject: JsonObject): JsonObject
+        - {static} getCharacteristics(jsonObject: JsonObject, characteristicKey: String): Characteristic
+        - {static} getNetlist(jsonObject: JsonObject): HashMap<String, String>
+        - {static} getDevice(jsonObject: JsonObject): Device
+        .. Public static methods ..
+        + {static} createJsonObject (filePath: String): JsonObject
+        + {static} getTopologyID(jsonObject: JsonObject): String
+        + {static} getTopologyDevices(jsonObject: JsonObject): ArrayList<Device>
+        + {static} convertTopologyToMap(topology: Topology): HashMap<String, Object>
+        + {static} writeMapToJSON(jsonMap: HashMap<String, Object>, filePath: String): void
+        + {static} getDeviceMap(device: Device) HashMap<String, Object>
+    }
+
+    class TopologyManager {
+        .. Constructors ..
+        - TopologyManager()
+        .. Private static methods ..
+        - {static} getTopology(topologyID: String): Topology
+        .. Public static methods ..
+        + {static} readJSON(filePath: String): void
+        + {static} writeJSON(topologyID: String, filePath: String): void
+        + {static} queryTopologies(): ArrayList<Topology>
+        + {static} queryDevices(topologyID: String): ArrayList<Device>
+        + {static} queryDevicesWithNetListNode(topologyID: String, netListNodeID: String): ArrayList<Device>
+        + {static} deleteTopology(topologyID: String): void
+    }
+    JsonHelperClass -up[hidden]->TopologyManager
+}
+
+@enduml

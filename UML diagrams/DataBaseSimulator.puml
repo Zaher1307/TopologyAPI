@@ -1,0 +1,9 @@
+@startuml TopologyManager
+
+package TopologyAPI {
+    class DataBase() {
+        + {static} topologies: ArrayList<Topology>
+    }
+}
+
+@enduml
