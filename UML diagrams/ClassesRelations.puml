@@ -1,4 +1,4 @@
-@startuml Topology
+@startuml TopologyRelationship
 
 package TopologyAPI {
     class Topology {

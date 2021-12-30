@@ -1,7 +1,7 @@
-@startuml TopologyManager
+@startuml DataBaseSimulator
 
 package TopologyAPI {
-    class DataBase() {
+    class DataBaseSimulator() {
         + {static} topologies: ArrayList<Topology>
     }
 }
