@@ -25,21 +25,22 @@ Providing the functionality to access, manage and store device topologies, given
 - ***TopologyManager Class:*** Provides the user with the main functionality to manipulate the topologies through its methods.
 - ***JsonHelperClass Class:*** Provides `TopologyManager` with helper methods to manipulate JSON files.
 - ***DataBaseSimulator Class:*** Simulates the memory source that the `TopologyManager` uses to store the read topologies, its visibilty modifier is `default` to make it visible only for the classes in **TopologyAPI** package, so it's granteed that the user of this package **cannot** access it.
-Note: If the API supports access to data base, `DataBase` may contain the methods used to store, retrieve and manipulate topologies from data base, so query methods retrieve a copy of the Topology object in the data base.
+
+***Note:*** *If the API supports access to data base, `DataBase` may contain the methods used to store, retrieve and manipulate topologies from data base, so query methods retrieve a copy of the Topology object in the data base.*
 
 **The UML Diagram of TopologyManager and JsonHelperClass Class:**
 
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/TopologyManager.png "TopologyManagerUML")
+![picture alt](https://raw.githubusercontent.com/Zaher1307/TopologyAPI/master/UML%20diagrams/TopologyManager.png "TopologyManagerUML")
 
-**The UML Diagram of DataBase Class:**
+**The UML Diagram of DataBaseSimulator Class:**
 
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/DataBase.png "DataBaseUML")
+![picture alt](https://raw.githubusercontent.com/Zaher1307/TopologyAPI/master/UML%20diagrams/DataBaseSimulator.png "DataBaseSimulatorUML")
 
 ## TopologyManager Documentation:
-**readJSON(String jsonFilePath):**
+**readJSON(String filePath):**
 - Description: read topology from the given JSON file.
 - Parameters:
-    1. `jsonFilePath`: the path of the given JSON file.
+    1. `filePath`: the path of the given JSON file.
 - Return: `void`.
 - Throw: 
     1. `IOException` if the path is wrong or no such a file in this path.
@@ -52,7 +53,6 @@ Note: If the API supports access to data base, `DataBase` may contain the method
 - Return: `void`.
 - Throws:
     1. `IOException` if the path is in wrong.
-    2. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
 
 **queryTopologies():**
 - Description: gives the user a list of topologies currently stored in memory.
@@ -65,16 +65,16 @@ Note: If the API supports access to data base, `DataBase` may contain the method
     1. `topologyID`: the ID of the topology to query its components.
 - Return: `ArrayList<Device>`.
 - Throws:
-    1. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
+    1. `NullPointerException` if there's no topology with the given ID in memory.
 
-**queryDevicesWithNetListNode(String topologyID, String node):**
+**queryDevicesWithNetListNode(String topologyID, String netListNodeID):**
 - Description: gives the user a list of components that are conneted to the given node.
 - Parameters: 
     1. `topologyID`: the ID of the topology.
-    2. `node`: the given node to query components connected to it.
+    2. `netListNodeID`: the given netListNodeID to query components connected to it.
 - Return: `ArrayList<Device>`.
 - Throws:
-    1. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
+    1. `NullPointerException` if there's no topology with the given ID in memory.
 
 **deleteTopology(String topologyID):**
 - Description: delete the given topology from the memory.
@@ -82,7 +82,8 @@ Note: If the API supports access to data base, `DataBase` may contain the method
     1. `topologyID`: the ID of the topology that will be deleted.
 - Return: `void`.
 - Throws:
-    1. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
+    1. `NullPointerException` if there's no topology with the given ID in memory.
+
 
 
 ## Classes Documentation
@@ -90,10 +91,9 @@ Note: If the API supports access to data base, `DataBase` may contain the method
 
 - ***Topology Class:*** It models the topology as an ID and an array of devices, each element in this array is of type `Device`.
 - ***Device Class:*** It models the device as an ID, type, characteristics and net list.
-- ***Limit Class:*** It models the characteristics of each device as a default, minimum, maximum value of (resistance, voltage, etc...).
-- ***TopologyIDNotFoundException Class:*** Defines a **user-defined-exception** to be thrown if the user tried to manipulate a topology in memory while it's not actually stored yet.  
+- ***Characteristic Class:*** It models the characteristics of each device as a default, minimum, maximum value of (resistance, voltage, etc...).
 
-**The UML Diagram of Topology, Device, and Limit Class:**
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/Topology.png "TopolgoUML")
+**The UML Diagram of Topology, Device, and Characteristic Class:**
+![picture alt](https://raw.githubusercontent.com/Zaher1307/TopologyAPI/master/UML%20diagrams/TopologyRelationship.png "TopolgoUML")
 
-Note: The UML Diagram of these classes shows the composition relation between them.
+***Note:*** *The UML Diagram of these classes shows the composition relation between them.*
