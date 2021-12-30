@@ -18,7 +18,7 @@ public class TestTopologyManager {
     @Test
     public void testDeleteTopology () throws IOException {
         String topology = "src/main/resources/topology.json";
-        /* add new topology to the memory */
+        /* add new topology to the memory using tested readJSON */
         TopologyManager.readJSON(topology);
 
         /* try to delete this topology */
@@ -39,17 +39,12 @@ public class TestTopologyManager {
         /* copy this topology from memory to disk */
         TopologyManager.writeJSON("top1", actual);
 
-        /* add the copy to the memory */
-        TopologyManager.readJSON(actual);
-
         /* check if the two objects in memory is equal and so if then the readJSON and writeJSON is correct */
         JsonElement expectedJsonElement = JsonParser.parseReader(new FileReader(expected));
         JsonElement actualJsonElement = JsonParser.parseReader(new FileReader(actual));
         Assert.assertEquals(actualJsonElement, expectedJsonElement);
 
-        /* try to delete the first topology */
-        TopologyManager.deleteTopology("top1");
-        /* try to delete the second topology */
+        /* try to delete the topology */
         TopologyManager.deleteTopology("top1");
     }
 
