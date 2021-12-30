@@ -18,6 +18,12 @@ Providing the functionality to access, manage and store device topologies, given
 - [Maven](https://maven.apache.org/) as a building tool.
 - [Junit5](https://junit.org/junit5/) to perform unit tests.
 
+**The purpose of choose this technology**
+- *It's a high-level object oriented programming language*
+- *the knowlege I build in Java Programming language*
+- *Its support to the Gson library to parse and manipulate json files*
+- *It's supported by Maven building and managing tool*
+
 
 ## TopologyAPI Documentation
 **TopologyAPI is modeled by three classes as follows:**
